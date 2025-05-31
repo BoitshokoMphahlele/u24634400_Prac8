@@ -1,0 +1,79 @@
+﻿@model u24634400_Prac8.Models.Triangle
+
+@{
+    ViewBag.Title = "CreateTriangleView";
+}
+
+<h2>Add a Triangle</h2>
+<p>Triangle</p>
+
+@using (Html.BeginForm("CreateTriangle", "Shapes", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Description, new { @class = "control-label" })
+        @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Fill Colour", new { @class = "control-label" })
+        @Html.DropDownListFor(m => m._color, new SelectList(new[] { "Red", "Green", "Blue", "Yellow" }), "-- Select a color --", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.Label("StrokeColour", new { @class = "control-label" })
+        @Html.DropDownListFor(m => m.StrokeColor, new SelectList(new[] { "Red", "Green", "Blue", "Yellow" }), "-- Select a color --", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.StrokeWidth, new { @class = "control-label" })
+        @Html.TextBoxFor(m => m.StrokeWidth, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.XCoordinate, "X coordinate of shape", new { @class = "control-label" })
+        @Html.TextBoxFor(m => m.XCoordinate, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.YCoordinate, "Y coordinate of shape", new { @class = "control-label" })
+        @Html.TextBoxFor(m => m.YCoordinate, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Point1X, "Point 1 X Coordinate", new { @class = "control-label" })
+        @Html.TextBoxFor(m => m.Point1X, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Point1Y, "Point 1 Y Coordinate", new { @class = "control-label" })
+        @Html.TextBoxFor(m => m.Point1Y, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Point2X, "Point 2 X Coordinate", new { @class = "control-label" })
+        @Html.TextBoxFor(m => m.Point2X, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Point2Y, "Point 2 Y Coordinate", new { @class = "control-label" })
+        @Html.TextBoxFor(m => m.Point2Y, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Point3X, "Point 3 X Coordinate", new { @class = "control-label" })
+        @Html.TextBoxFor(m => m.Point3X, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Point3Y, "Point 3 Y Coordinate", new { @class = "control-label" })
+        @Html.TextBoxFor(m => m.Point3Y, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+}
+
+<p>
+    @Html.ActionLink("Back to List", "MenuView", "Shapes")
+</p>

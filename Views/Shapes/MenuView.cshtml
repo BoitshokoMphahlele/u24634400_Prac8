@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "MenuView";
+}
+
+<h2>Choose the type of shape to display.</h2>
+<form id="shapeForm">
+    <input type="radio" id="circle" name="shape" value="Circle">
+    <label for="circle">Circle</label><br>
+
+    <input type="radio" id="rectangle" name="shape" value="Rectangle">
+    <label for="rectangle">Rectangle</label><br>
+
+    <input type="radio" id="ellipse" name="shape" value="Ellipse">
+    <label for="ellipse">Ellipse</label><br>
+
+    <input type="radio" id="triangle" name="shape" value="Triangle">
+    <label for="triangle">Triangle</label><br><br>
+
+    <button type="submit">Submit</button>
+</form>
+
+
+<script>
+    document.getElementById("shapeForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // Stop default form submit
+
+        const selected = document.querySelector('input[name="shape"]:checked');
+
+        if (!selected) {
+            alert("Please select a shape.");
+            return;
+        }
+
+        // Redirect based on selection
+        if (selected.value === "Circle") {
+            window.location.href = '@Url.Action("CreateSquareView", "Shapes")';
+        } else if (selected.value === "Rectangle") {
+            window.location.href = '@Url.Action("CreateRectangleView", "Shapes")';
+        } else if (selected.value === "Ellipse") {
+            window.location.href = '@Url.Action("CreateEllipseView", "Shapes")';
+        } else if (selected.value === "Triangle") {
+            window.location.href = '@Url.Action("CreateTriangleView", "Shapes")';
+        }
+    });
+</script>

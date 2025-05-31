@@ -1,0 +1,55 @@
+﻿@model u24634400_Prac8.Models.Rectangle
+
+@{
+    ViewBag.Title = "CreateRectangleView";
+}
+
+<h2>Add a Rectangle</h2>
+<p>Rectangle</p>
+
+@using (Html.BeginForm("CreateRectangle", "Shapes", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Description)
+        @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Fill Color")
+        @Html.DropDownListFor(m => m.FillColor, new SelectList(new[] { "Red", "Blue", "Green", "Yellow" }), "-- Select a color --", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Stroke Color")
+        @Html.DropDownListFor(m => m.StrokeColor, new SelectList(new[] { "Red", "Blue", "Green", "Yellow" }), "-- Select a color --", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.StrokeWidth)
+        @Html.TextBoxFor(m => m.StrokeWidth, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.X)
+        @Html.TextBoxFor(m => m.X, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Y)
+        @Html.TextBoxFor(m => m.Y, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Width)
+        @Html.TextBoxFor(m => m.Width, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Height)
+        @Html.TextBoxFor(m => m.Height, new { @class = "form-control" })
+    </div>
+
+    <input type="submit" value="Create" class="btn btn-primary" />
+}
+
+<p>@Html.ActionLink("Back to Choose Shape", "MenuView", "Shapes")</p>

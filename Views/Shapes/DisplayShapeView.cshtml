@@ -1,0 +1,99 @@
+﻿@{
+    ViewBag.Title = "Display Shape";
+    var type = TempData["type"] as string;
+    var shape = TempData["shape"];
+}
+
+<div class="row">
+    <div class="col">
+        <h2>Display Shape</h2>
+    </div>
+</div>
+
+@using (Html.BeginForm("AddShapeToList", "Shapes", FormMethod.Post))
+{
+    <button type="submit" class="btn btn-primary float-end">Add Shape</button>
+}
+
+@if (type == "triangle")
+{
+    var triangle = shape as u24634400_Prac8.Models.Triangle;
+    if (triangle != null)
+    {
+        <p> @triangle.Description</p>
+
+        <p>Area: @triangle.GetArea().ToString("0.00")</p>
+    }
+}
+else if (type == "ellipse")
+{
+    var ellipse = shape as u24634400_Prac8.Models.Ellipse;
+    if (ellipse != null)
+    {
+        <p> @ellipse.Description</p>
+
+        <p>Area: @ellipse.GetArea().ToString("0.00")</p>
+    }
+}
+else if (type == "rectangle")
+{
+    var rect = shape as u24634400_Prac8.Models.Rectangle;
+    if (rect != null)
+    {
+        <p> @rect.Description</p>
+
+        <p>Area: @rect.GetArea().ToString("0.00")</p>
+    }
+}
+
+<svg width="450" height="450" style="border:1px solid black;">
+    @if (type == "triangle")
+    {
+        var triangle = shape as u24634400_Prac8.Models.Triangle;
+        if (triangle != null)
+        {
+            <polygon points="@($"{triangle.Point1X},{triangle.Point1Y} {triangle.Point2X},{triangle.Point2Y} {triangle.Point3X},{triangle.Point3Y}")"
+                     fill="@triangle._color"
+                     stroke="@triangle.StrokeColor"
+                     stroke-width="@triangle.StrokeWidth" />
+        }
+    }
+    else if (type == "ellipse")
+    {
+        var ellipse = shape as u24634400_Prac8.Models.Ellipse;
+        if (ellipse != null)
+        {
+            <ellipse cx="@ellipse.CentreX"
+                     cy="@ellipse.CentreY"
+                     rx="@ellipse.RadiusX"
+                     ry="@ellipse.RadiusY"
+                     fill="@ellipse.FillColor"
+                     stroke="@ellipse.StrokeColor"
+                     stroke-width="@ellipse.StrokeWidth" />
+        }
+    }
+    else if (type == "rectangle")
+    {
+        var rect = shape as u24634400_Prac8.Models.Rectangle;
+        if (rect != null)
+        {
+            <rect x="@rect.X"
+                  y="@rect.Y"
+                  width="@rect.Width"
+                  height="@rect.Height"
+                  fill="@rect.FillColor"
+                  stroke="@rect.StrokeColor"
+                  stroke-width="@rect.StrokeWidth" />
+        }
+    }
+</svg>
+
+<hr />
+
+
+
+
+
+<p>
+    @Html.ActionLink("Back to Choose Shape", "MenuView", "Shapes")
+</p>
