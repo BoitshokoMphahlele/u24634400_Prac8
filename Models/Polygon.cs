@@ -166,5 +166,27 @@ namespace u24634400_Prac8.Models
 
         }
     }
+    public class circle : Polygon
+    {
+        public int radius { get; set; }
+        public int CentreX { get; set; }
+        public int CentreY { get; set; }
+
+        public circle()
+        {
+
+        }
+
+        public override double GetArea()
+        {
+            return Math.PI * radius*radius;
+        }
+
+        public override string GetSVG()
+        {
+            return $"<circle r='{radius}' cx='{CentreX}' cy='{CentreY}' fill='{_color}' />";
+        }
+
+    }
 
 }

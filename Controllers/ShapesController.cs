@@ -98,6 +98,21 @@ namespace u24634400_Prac8.Controllers
             return RedirectToAction("DisplayShape");
         }
 
+        public ActionResult CreateCircleView()
+        {
+            return View(new circle());
+        }
 
+        [HttpPost]
+        public ActionResult CreateCircle(circle circle)
+        {
+            if (ModelState.IsValid)
+            {
+                TempData["shape"] = circle;
+                TempData["type"] = "circle";
+                return RedirectToAction("DisplayShape");
+            }
+            return View("CreateCircleView", circle);
+        }
     }
 }

@@ -180,11 +180,11 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shapes\MenuView.cshtml" />
-    <Content Include="Views\Shapes\CreateSquareView.cshtml" />
     <Content Include="Views\Shapes\CreateRectangleView.cshtml" />
     <Content Include="Views\Shapes\CreateTriangleView.cshtml" />
     <Content Include="Views\Shapes\CreateEllipseView.cshtml" />
     <Content Include="Views\Shapes\DisplayShapeView.cshtml" />
+    <Content Include="Views\Shapes\CreateCircleView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

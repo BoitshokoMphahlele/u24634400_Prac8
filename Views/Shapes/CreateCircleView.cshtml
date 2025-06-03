@@ -1,0 +1,66 @@
+﻿@model u24634400_Prac8.Models.circle
+
+@{
+    ViewBag.Title = "CreateCircleView";
+}
+
+<h2>Add an Circle</h2>
+<p>Circle</p>
+
+@using (Html.BeginForm("CreateCircle", "Shapes", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Description, new { @class = "control-label" })
+        @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Fill Colour", new { @class = "control-label" })
+        @Html.DropDownListFor(m => m.FillColor, new SelectList(new[] { "Red", "Orange", "Green", "Yellow" }), "-- Select a color --", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Stroke Colour", new { @class = "control-label" })
+        @Html.DropDownListFor(m => m.StrokeColor, new SelectList(new[] { "Red", "Orange", "Green", "Yellow" }), "-- Select a color --", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.StrokeWidth, new { @class = "control-label" })
+        @Html.TextBoxFor(m => m.StrokeWidth, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.XCoordinate, "X Coordinate of the shape", new { @class = "control-label" })
+        @Html.TextBoxFor(m => m.XCoordinate, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.YCoordinate, "Y Coordinate of the shape", new { @class = "control-label" })
+        @Html.TextBoxFor(m => m.YCoordinate, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.radius, "Radius", new { @class = "control-label" })
+        @Html.TextBoxFor(m => m.radius, new { @class = "form-control" })
+    </div>
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.CentreX, "X Coordinate of the center", new { @class = "control-label" })
+        @Html.TextBoxFor(m => m.CentreX, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.CentreY, "Y Coordinate of the center", new { @class = "control-label" })
+        @Html.TextBoxFor(m => m.CentreY, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+}
+
+<p>
+    @Html.ActionLink("Back to List", "MenuView", "Shapes")
+</p>
