@@ -184,7 +184,7 @@ namespace u24634400_Prac8.Models
 
         public override string GetSVG()
         {
-            return $"<circle r='{radius}' cx='{CentreX}' cy='{CentreY}' fill='{_color}' />";
+            return $"<circle r='{radius}' cx='{CentreX}' cy='{CentreY}' fill='{_color}' stroke='{StrokeColor}'stroke-width='{StrokeWidth}' />";
         }
 
     }
