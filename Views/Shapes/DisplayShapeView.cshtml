@@ -45,6 +45,17 @@ else if (type == "rectangle")
         <p>Area: @rect.GetArea().ToString("0.00")</p>
     }
 }
+else if(type == "circle")
+{
+    var circle = shape as u24634400_Prac8.Models.circle;
+    if(circle != null)
+    {
+        <p>@circle.Description</p>
+        <p>Area: @circle.GetArea().ToString("0.00")</p>
+
+    }
+
+}
 
 <svg width="450" height="450" style="border:1px solid black;">
     @if (type == "triangle")
@@ -85,6 +96,21 @@ else if (type == "rectangle")
                   stroke="@rect.StrokeColor"
                   stroke-width="@rect.StrokeWidth" />
         }
+    }
+    else if (type == "circle")
+    {
+        var circle = shape as u24634400_Prac8.Models.circle;
+        if(circle != null)
+        {
+            <circle cx="@circle.CentreX"
+                    cy="@circle.CentreY"
+                    r="@circle.radius"
+                    fill="@circle.FillColor"
+                    stroke="@circle.StrokeColor"
+                    stroke-width="@circle.StrokeWidth"/>
+
+        }
+
     }
 </svg>
 
