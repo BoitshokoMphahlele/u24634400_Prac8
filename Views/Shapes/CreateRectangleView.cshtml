@@ -4,56 +4,60 @@
     ViewBag.Title = "CreateRectangleView";
 }
 
-<h2>Add a Rectangle</h2>
-<p>Rectangle</p>
+<h2 class="mt-4">Add a Rectangle</h2>
+<p class="mb-4">Rectangle</p>
 
 @using (Html.BeginForm("CreateRectangle", "Shapes", FormMethod.Post, new { @class = "form-horizontal" }))
 {
-    <div class="row form-group">
-        <div class="col-">
-            @Html.LabelFor(m => m.Description)
-        </div>
-        <div class="col-1">
-            @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
-        </div>
+    <div class="form-group mb-3">
+        @Html.LabelFor(m => m.Description, new { @class = "form-label" })
+        @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
     </div>
 
-    <div class="form-group">
-        @Html.Label("Fill Color")
-        @Html.DropDownListFor(m => m.FillColor, new SelectList(new[] { "Red", "Blue", "Green", "Yellow" }), "-- Select a color --", new { @class = "form-control" })
+    <div class="form-group mb-3">
+        @Html.Label("Fill Colour", new { @class = "form-label" })
+        @Html.DropDownListFor(m => m.FillColor,
+            new SelectList(new[] { "Red", "Blue", "Green", "Yellow" }),
+            "-- Select a color --",
+            new { @class = "form-control" })
     </div>
 
-    <div class="form-group">
-        @Html.Label("Stroke Color")
-        @Html.DropDownListFor(m => m.StrokeColor, new SelectList(new[] { "Red", "Blue", "Green", "Yellow" }), "-- Select a color --", new { @class = "form-control" })
+    <div class="form-group mb-3">
+        @Html.Label("Stroke Colour", new { @class = "form-label" })
+        @Html.DropDownListFor(m => m.StrokeColor,
+            new SelectList(new[] { "Red", "Blue", "Green", "Yellow" }),
+            "-- Select a color --",
+            new { @class = "form-control" })
     </div>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.StrokeWidth)
+    <div class="form-group mb-3">
+        @Html.LabelFor(m => m.StrokeWidth, new { @class = "form-label" })
         @Html.TextBoxFor(m => m.StrokeWidth, new { @class = "form-control" })
     </div>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.X)
+    <div class="form-group mb-3">
+        @Html.LabelFor(m => m.X, "X coordinate of shape", new { @class = "form-label" })
         @Html.TextBoxFor(m => m.X, new { @class = "form-control" })
     </div>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.Y)
+    <div class="form-group mb-3">
+        @Html.LabelFor(m => m.Y, "Y coordinate of shape", new { @class = "form-label" })
         @Html.TextBoxFor(m => m.Y, new { @class = "form-control" })
     </div>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.Width)
+    <div class="form-group mb-3">
+        @Html.LabelFor(m => m.Width, "Width of rectangle", new { @class = "form-label" })
         @Html.TextBoxFor(m => m.Width, new { @class = "form-control" })
     </div>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.Height)
+    <div class="form-group mb-4">
+        @Html.LabelFor(m => m.Height, "Height of rectangle", new { @class = "form-label" })
         @Html.TextBoxFor(m => m.Height, new { @class = "form-control" })
     </div>
 
     <input type="submit" value="Create" class="btn btn-primary" />
 }
 
-<p>@Html.ActionLink("Back to Choose Shape", "MenuView", "Shapes")</p>
+<p class="mt-3">
+    @Html.ActionLink("Back to List", "MenuView", "Shapes")
+</p>

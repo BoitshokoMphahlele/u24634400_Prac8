@@ -88,14 +88,14 @@ namespace u24634400_Prac8.Controllers
 
             if (shape != null)
             {
-                shapes.Add(shape);
+                ShapesController.shapes.Add(shape); 
             }
 
             
             TempData["shape"] = shape;
             TempData["type"] = type;
 
-            return RedirectToAction("DisplayShape");
+            return View("DisplayShapeView"); 
         }
 
         public ActionResult CreateCircleView()
