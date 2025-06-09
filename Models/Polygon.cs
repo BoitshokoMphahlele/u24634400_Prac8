@@ -39,31 +39,7 @@ namespace u24634400_Prac8.Models
     }
 
     //Create derived class = square
-    public class Square : Polygon
-    {
-        //constructor 
-        public Square(int length)
-        {
-            Sides = 4;
-            Length = length;
-
-        }
-
-        //class method to calculate area
-        public override double GetArea()
-        {
-
-            return Length * Length;
-            
-        }
-
-        public override string GetSVG()
-        {
-            return "<svg width='450' height='450'>" +
-                   "<rect width='" + Length + "' height='" + Length + "' style='fill:" + _color + ";' />" +
-                   "</svg>";
-        }
-    }
+    
 
     
     public class Rectangle : Polygon
@@ -96,10 +72,9 @@ namespace u24634400_Prac8.Models
 
         public override string GetSVG()
         {
-            return "<svg width='450' height='450'>" +
-                   "<rect width='" + Length + "' height='" + Breadth + "' style='fill:" + _color + ";' />" +
-                   "</svg>";
+            return $"<rect x='{X}' y='{Y}' width='{Width}' height='{Height}' fill='{FillColor}' stroke='{StrokeColor}' stroke-width='{StrokeWidth}' />";
         }
+
 
     }
 
@@ -128,9 +103,9 @@ namespace u24634400_Prac8.Models
 
         public override string GetSVG()
         {
-            return $"<polygon points='{Point1X},{Point1Y} {Point2X},{Point2Y} {Point3X},{Point3Y}' " +
-                   $"fill='{_color}' stroke='{StrokeColor}' stroke-width='{StrokeWidth}' />";
+            return $"<polygon points='{Point1X},{Point1Y} {Point2X},{Point2Y} {Point3X},{Point3Y}' fill='{FillColor}' stroke='{StrokeColor}' stroke-width='{StrokeWidth}' />";
         }
+
     }
 
 
@@ -162,9 +137,9 @@ namespace u24634400_Prac8.Models
 
         public override string GetSVG()
         {
-            return $"<ellipse cx='{CentreX}' cy='{CentreY}' rx='{RadiusX}' ry='{RadiusY}' fill='{_color}' />";
-
+            return $"<ellipse cx='{CentreX}' cy='{CentreY}' rx='{RadiusX}' ry='{RadiusY}' fill='{FillColor}' stroke='{StrokeColor}' stroke-width='{StrokeWidth}' />";
         }
+
     }
     public class circle : Polygon
     {
@@ -184,7 +159,7 @@ namespace u24634400_Prac8.Models
 
         public override string GetSVG()
         {
-            return $"<circle r='{radius}' cx='{CentreX}' cy='{CentreY}' fill='{_color}' stroke='{StrokeColor}'stroke-width='{StrokeWidth}' />";
+            return $"<circle cx='{CentreX}' cy='{CentreY}' r='{radius}' fill='{FillColor}' stroke='{StrokeColor}' stroke-width='{StrokeWidth}' />";
         }
 
     }

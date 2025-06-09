@@ -63,10 +63,7 @@ else if (type == "circle")
         var triangle = shape as u24634400_Prac8.Models.Triangle;
         if (triangle != null)
         {
-            <polygon points="@($"{triangle.Point1X},{triangle.Point1Y} {triangle.Point2X},{triangle.Point2Y} {triangle.Point3X},{triangle.Point3Y}")"
-                     fill="@triangle._color"
-                     stroke="@triangle.StrokeColor"
-                     stroke-width="@triangle.StrokeWidth" />
+            @Html.Raw(triangle.GetSVG())
         }
     }
     else if (type == "ellipse")
@@ -74,13 +71,7 @@ else if (type == "circle")
         var ellipse = shape as u24634400_Prac8.Models.Ellipse;
         if (ellipse != null)
         {
-            <ellipse cx="@ellipse.CentreX"
-                     cy="@ellipse.CentreY"
-                     rx="@ellipse.RadiusX"
-                     ry="@ellipse.RadiusY"
-                     fill="@ellipse.FillColor"
-                     stroke="@ellipse.StrokeColor"
-                     stroke-width="@ellipse.StrokeWidth" />
+            @Html.Raw(ellipse.GetSVG())
         }
     }
     else if (type == "rectangle")
@@ -88,26 +79,16 @@ else if (type == "circle")
         var rect = shape as u24634400_Prac8.Models.Rectangle;
         if (rect != null)
         {
-            <rect x="@rect.X"
-                  y="@rect.Y"
-                  width="@rect.Width"
-                  height="@rect.Height"
-                  fill="@rect.FillColor"
-                  stroke="@rect.StrokeColor"
-                  stroke-width="@rect.StrokeWidth" />
+            @Html.Raw(rect.GetSVG())
         }
+
     }
     else if (type == "circle")
     {
         var circle = shape as u24634400_Prac8.Models.circle;
         if (circle != null)
         {
-            <circle cx="@circle.CentreX"
-                    cy="@circle.CentreY"
-                    r="@circle.radius"
-                    fill="@circle.FillColor"
-                    stroke="@circle.StrokeColor"
-                    stroke-width="@circle.StrokeWidth" />
+            @Html.Raw(circle.GetSVG())
 
         }
 
